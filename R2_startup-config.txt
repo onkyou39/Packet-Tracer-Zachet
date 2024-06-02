@@ -1,0 +1,92 @@
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname Zachet
+!
+!
+!
+enable secret 5 $1$mERr$ot1cRjtddSxRK0SlrXlIP1
+!
+!
+!
+!
+!
+!
+ip cef
+no ipv6 cef
+!
+!
+!
+!
+license udi pid CISCO2911/K9 sn FTX15247DD1-
+!
+!
+!
+!
+!
+!
+!
+!
+!
+no ip domain-lookup
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0
+ ip address 192.168.0.222 255.255.255.224
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/1
+ ip address 192.168.0.254 255.255.255.224
+ duplex auto
+ speed auto
+!
+interface GigabitEthernet0/2
+ ip address 192.168.0.99 255.255.255.224
+ duplex auto
+ speed auto
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+ip classless
+ip route 0.0.0.0 0.0.0.0 192.168.0.225 11
+ip route 0.0.0.0 0.0.0.0 192.168.0.193 
+!
+ip flow-export version 9
+!
+!
+!
+banner motd "Warning"
+!
+!
+!
+!
+line con 0
+ password 7 082243401A160912
+ login
+!
+line aux 0
+!
+line vty 0 4
+ password 7 08154942071C11
+ login
+line vty 5 15
+ password 7 08154942071C11
+ login
+!
+!
+!
+end
+
